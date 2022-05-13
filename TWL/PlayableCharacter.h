@@ -49,10 +49,36 @@ private:
 
 
 public:
+	void Spawn(Vector2f startposition, float gravity);
+	
+	//Pure virtual function
+	bool virtual handleInput() = 0;
+
+	//Where is the player located?
+	FloatRect getPosition();
+
+	//A rectange used to denote location of body parts for the sprite
+	FloatRect getHead();
+	FloatRect getRight();
+	FloatRect getLeft();
+	FloatRect getFeet();
+
+	//Passes a copy of the sprite to main
+	Sprite getSprite();
+
+	//Keeps the character stationary when not moving
+	void stopFalling(float position);
+	void stopRight(float position);
+	void stopLeft(float position);
+	void stopJump();
+
+	//Center of the character
+	Vector2f getCenter();
+
+	//Call the update function once a frame
+	void update(float elapsedtTime);
 
 
-
-
-};
+}; //end of character class
 
 
