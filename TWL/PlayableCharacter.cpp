@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "PlayableCharacter.h"
 
-void PlayableCharacter::Spawn(Vector2f startPosition, float gravity)
+void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
 {
 	//place the character at the right start location
 	m_Position.x = startPosition.x;

@@ -49,7 +49,7 @@ private:
 
 
 public:
-	void Spawn(Vector2f startposition, float gravity);
+	void spawn(Vector2f startposition, float gravity);
 	
 	//Pure virtual function
 	bool virtual handleInput() = 0;
