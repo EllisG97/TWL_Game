@@ -110,10 +110,10 @@ int** levelManager::nextLevel(VertexArray& rVaLevel)
 
 	for (int x = 0; x < m_LevelSize.x; x++)
 	{
-		for (int y = 0; y = m_LevelSize.y; y++)
+		for (int y = 0; y < m_LevelSize.y; y++)
 		{
-			//position each vertex in current quad
-			rVaLevel[currentVertex = 0].position =
+			// Position each vertex in the current quad
+			rVaLevel[currentVertex + 0].position =
 				Vector2f(x * TILE_SIZE,
 					y * TILE_SIZE);
 
@@ -129,7 +129,8 @@ int** levelManager::nextLevel(VertexArray& rVaLevel)
 				Vector2f((x * TILE_SIZE),
 					(y * TILE_SIZE) + TILE_SIZE);
 
-			//Which tile from the sprite sheet should we use?
+
+			// Which tile from the sprite sheet should we use
 			int verticalOffset = arrayLevel[y][x] * TILE_SIZE;
 
 			rVaLevel[currentVertex + 0].texCoords =
@@ -153,3 +154,24 @@ int** levelManager::nextLevel(VertexArray& rVaLevel)
 	return arrayLevel;
 
 } //end of next level function
+
+
+Vector2i levelManager::getLevelSize()
+{
+	return m_LevelSize;
+}
+
+int levelManager::getCurrentLevel()
+{
+	return m_CurrentLevel;
+}
+
+float levelManager::getTimeLimit()
+{
+	return m_BaseTimeLimit * m_TimeModifier;
+}
+
+Vector2f levelManager::getStartPosition()
+{
+	return m_StartPosition;
+}
