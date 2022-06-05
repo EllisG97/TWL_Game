@@ -23,6 +23,22 @@ void Engine::update(float dtAsSeconds)
 		//Update Bob
 		m_Bob.update(dtAsSeconds);
 
+		//detect collisions and if goal has been reached
+		//second part only activates if thomas has reached home
+		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob))
+		{
+			//New level required
+			m_NewLevelRequired = true;
+			//play the goal reached sound
+			m_SM.playReachGoal();
+
+		}
+		else
+		{
+			//run bobs collisions detection 
+			detectCollisions(m_Bob);
+		}
+
 
 		//Count down the remaning time for the player
 		m_TimeRemaining -= dtAsSeconds;
@@ -34,6 +50,30 @@ void Engine::update(float dtAsSeconds)
 		}
 
 	} // End if playing
+
+	//check if a fire sound is needed
+	vector<Vector2f>::iterator it;
+
+	//Iterate through the vector of vector2f objects
+	for (it = m_FireEmitters.begin(); it != m_FireEmitters.end(); it++)
+	{
+		//Where is the emitter?
+		//Store location in pos
+		float posX = (*it).x;
+		float posY = (*it).y;
+
+		//is the emitter near the player?
+		//Make a 500 pixel rect around emitter
+		FloatRect localRect(posX - 250, posY - 250, 500, 500);
+
+		//Is the player inside the rect?
+		if (m_Thomas.getPosition().intersects(localRect))
+		{
+			//play the sound and pass in location as well
+			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
+		}
+	}
+
 
 	//set the correct view for the current selected character
 	if (m_SplitScreen)

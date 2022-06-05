@@ -17,6 +17,9 @@ void Engine::loadLevel()
 	//Repopulate the vertex array too
 	m_ArrayLevel = m_LM.nextLevel(m_VALevel);
 
+	//prepare any sound emitters
+	populateEmitters(m_FireEmitters, m_ArrayLevel);
+
 	//How long is the new time limit?
 	m_TimeRemaining - m_LM.getTimeLimit();
 

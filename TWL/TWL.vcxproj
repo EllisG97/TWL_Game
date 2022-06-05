@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bob.cpp" />
+    <ClCompile Include="DetectCollisions.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -166,6 +167,8 @@
     </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayableCharacter.cpp" />
+    <ClCompile Include="PopulateEmitters.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
     <ClCompile Include="Thomas.cpp" />
     <ClCompile Include="Update.cpp" />
@@ -176,6 +179,7 @@
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PlayableCharacter.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextureHolder.h" />
     <ClInclude Include="Thomas.h" />
   </ItemGroup>
