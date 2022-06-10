@@ -27,6 +27,22 @@ Engine::Engine()
 		FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
 	m_BGRightView.setViewport(
 		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
+
+	//Can this GPU used shaders?
+	if (!sf::Shader::isAvailable())
+	{
+		//Time to get a new PC
+		m_Window.close();
+	}
+	else
+	{
+		//Load the 2 shaders, 1 vertex 1 fragment
+		m_RippleShader.loadFromFile("shaders/vertShader.vert",
+			"shaders/rippleShader.frag");
+	}
+
+
+
 	m_BackgroundTexture = TextureHolder::GetTexture(
 		"graphics/background.png");
 

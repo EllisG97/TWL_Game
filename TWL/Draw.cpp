@@ -5,14 +5,17 @@ void Engine::draw()
 {
 	//clear the previous frame
 	m_Window.clear(Color::White);
+
+	//update shader parameters
+	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
 	
 	if (!m_SplitScreen)
 	{
 		//Switch to the background view
 		m_Window.setView(m_BGMainView);
 
-		//draw the background 
-		m_Window.draw(m_BackgroundSprite);
+		//draw the background with shaders
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		//Switch to the main view
 		m_Window.setView(m_MainView);
@@ -44,8 +47,8 @@ void Engine::draw()
 		//Switch to the background view
 		m_Window.setView(m_BGLeftView);		
 
-		//Draw the background
-		m_Window.draw(m_BackgroundSprite);
+		//Draw the background with shaders
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		//Switch to the left view for Thomas
 		m_Window.setView(m_LeftView);
@@ -70,8 +73,8 @@ void Engine::draw()
 		//Switch to the background view
 		m_Window.setView(m_BGRightView);
 
-		//Draw the Background
-		m_Window.draw(m_BackgroundSprite);
+		//Draw the Background with shaders
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		//Switch to the right view for Bob
 		m_Window.setView(m_RightView);

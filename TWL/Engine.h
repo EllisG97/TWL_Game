@@ -63,6 +63,9 @@ private:
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
 
+	//Declare a background shader 
+	Shader m_RippleShader;
+
 	// Is the game currently playing?
 	bool m_Playing = false;
 
