@@ -26,6 +26,12 @@ void Engine::draw()
 		//Draw Bob
 		m_Window.draw(m_Bob.getSprite());
 
+		//draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
+
 
 	}
 
@@ -53,6 +59,12 @@ void Engine::draw()
 		//draw Thomas
 		m_Window.draw(m_Thomas.getSprite());
 
+		//draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
+
 		//Now draw bobs side of the screen
 
 		//Switch to the background view
@@ -73,6 +85,12 @@ void Engine::draw()
 
 		//draw Bob
 		m_Window.draw(m_Bob.getSprite());
+
+		//draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 
 	}
 

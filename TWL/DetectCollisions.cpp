@@ -86,6 +86,25 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			}
 
 			//collision linked to particles
+			//Has the character touched water or fire?
+			//check that this is the first time by seeing
+			//if it is already running first
+			if (!m_PS.running())
+			{
+				if (m_ArrayLevel[y][x] == 2 || m_ArrayLevel[y][x] == 3)
+				{
+					if (character.getFeet().intersects(block))
+					{
+						//posiiton and start particle system
+						m_PS.emitParticles(character.getCenter());
+					}
+
+
+				}
+
+			}
+
+
 			
 
 			//has the character reached the goal?
