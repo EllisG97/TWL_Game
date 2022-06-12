@@ -27,7 +27,7 @@ private:
 	Bob m_Bob;
 
 	//a class to manage all levels 
-	levelManager m_LM;
+	LevelManager m_LM;
 
 	//a class to manager sounds
 	SoundManager m_SM;

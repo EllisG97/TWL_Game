@@ -21,7 +21,7 @@ void Engine::loadLevel()
 	populateEmitters(m_FireEmitters, m_ArrayLevel);
 
 	//How long is the new time limit?
-	m_TimeRemaining - m_LM.getTimeLimit();
+	m_TimeRemaining = m_LM.getTimeLimit();
 
 	//Spawn Mr Thomas and Mr Bob
 	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);

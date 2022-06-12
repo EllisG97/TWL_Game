@@ -4,7 +4,7 @@
 using namespace sf;
 using namespace std;
 
-class levelManager {
+class LevelManager {
 
 private:
 	Vector2i m_LevelSize;
@@ -17,7 +17,7 @@ private:
 public:
 
 	const int TILE_SIZE = 50;
-	const int VERT_IN_QUAD = 4;
+	const int VERTS_IN_QUAD = 4;
 
 	float getTimeLimit();
 	Vector2f getStartPosition();
