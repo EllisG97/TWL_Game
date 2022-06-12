@@ -13,6 +13,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	FloatRect block;
 
 	block.width = TILE_SIZE;
+	block.height = TILE_SIZE;
 
 
 	//build a zone around tom for collisions
